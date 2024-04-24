@@ -2,14 +2,14 @@ package com.alienTechie.aopApp.service;
 
 public interface LoggingService {
 	
-	void logBefore();
+	void logBeforeMethod();
 	
-	void logAfter();
+	void logAfterMethod();
 	
-	void logAfterReturning();
+	String logAfterReturningMethod();
 	
-	void logAfterThrowing();
+	void logAfterThrowingMethod();
 	
-	void logAround();
+	void logAroundMethod();
 
 }

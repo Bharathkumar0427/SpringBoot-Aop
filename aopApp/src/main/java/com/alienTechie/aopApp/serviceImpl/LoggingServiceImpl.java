@@ -12,31 +12,32 @@ public class LoggingServiceImpl implements LoggingService{
 	public static final Logger logger=  LoggerFactory.getLogger(LoggingServiceImpl.class);
 
 	@Override
-	public void logBefore() {
+	public void logBeforeMethod() {
 		
 		logger.info("LOGGING BEFORE");
 	}
 
 	@Override
-	public void logAfter() {
+	public void logAfterMethod() {
 		logger.info("LOGGING BEFORE");
 	
 		
 	}
 
 	@Override
-	public void logAfterReturning() {
+	public String logAfterReturningMethod() {
 		logger.info("LOGGING AFTER RETURNING");
+		return "logAfterReturning";
 		
 	}
 
 	@Override
-	public void logAfterThrowing() {
+	public void logAfterThrowingMethod() {
 		logger.info("LOGGING AFTER THROWING");
 	}
 
 	@Override
-	public void logAround() {
+	public void logAroundMethod() {
 		logger.info("LOGGING  AROUND");
 		
 	}

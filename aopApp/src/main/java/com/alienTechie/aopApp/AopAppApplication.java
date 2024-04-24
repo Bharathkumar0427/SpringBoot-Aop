@@ -10,7 +10,6 @@ import com.alienTechie.aopApp.service.LoggingService;
 import jakarta.annotation.PostConstruct;
 
 @SpringBootApplication
-
 public class AopAppApplication {
 	
 	@Autowired
@@ -24,7 +23,8 @@ public class AopAppApplication {
 	@PostConstruct
 	public void postcon() {
 		
-		this.loggingService.logBefore();
+		this.loggingService.logBeforeMethod();
+		this.loggingService.logAfterReturningMethod();
 	}
 	
 	

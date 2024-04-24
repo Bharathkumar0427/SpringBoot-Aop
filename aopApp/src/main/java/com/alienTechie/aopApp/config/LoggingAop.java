@@ -1,8 +1,9 @@
 package com.alienTechie.aopApp.config;
 
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,27 +11,36 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-
-
 @Aspect
 @Component
 public class LoggingAop {
-	
-	public static final Logger logger=  LoggerFactory.getLogger(LoggingAop.class);
-	
+
+	public static final Logger logger = LoggerFactory.getLogger(LoggingAop.class);
+
 	@Before(value = "execution(* com.alienTechie.aopApp..*(..))")
 	public void logBefore(JoinPoint joinpoint) {
-		logger.info("method execution started before: "+joinpoint.getSignature().getName());
+		logger.info("method execution started before:{}", joinpoint.getSignature().getName());
 	}
-	
+
 	@After(value = "execution(* com.alienTechie.aopApp..*(..))")
 	public void logAfter(JoinPoint joinpoint) {
-		logger.info("method execution started after: "+joinpoint.getSignature().getName());
+
+		logger.info("method execution started after:{}", joinpoint.getSignature().getName());
 	}
-	
+
 	@Around(value = "execution(* com.alienTechie.aopApp..*(..))")
 	public void logAround(JoinPoint joinpoint) {
-		logger.info("method execution started around: "+joinpoint.getSignature().getName());
+		logger.info("method execution started around: {}", joinpoint.getSignature().getName());
+	}
+
+	@AfterReturning(value = "execution(* com.alienTechie.aopApp..*(..))")
+	public void afterReturning(JoinPoint joinpoint) {
+		logger.info("method execution started afterReturning: {}", joinpoint.getSignature().getName());
+	}
+
+	@AfterThrowing(value = "execution(* com.alienTechie.aopApp..*(..))")
+	public void afterthrowing(JoinPoint joinpoint) {
+		logger.info("method execution started afterThrowing: {}", joinpoint.getSignature().getName());
 	}
 
 }
