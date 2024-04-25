@@ -34,6 +34,7 @@ public class LoggingAop {
 		
 		long startTime=System.currentTimeMillis();
 		final Object result=joinpoint.proceed();
+	
 		long endTime=System.currentTimeMillis();
 		logger.info("{}  took {} timetoComplete", joinpoint.getSignature().getName(),startTime-endTime);
 		
