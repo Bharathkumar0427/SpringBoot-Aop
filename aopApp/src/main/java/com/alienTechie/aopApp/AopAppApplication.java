@@ -24,7 +24,7 @@ public class AopAppApplication {
 	public void postcon() {
 		
 		this.loggingService.logBeforeMethod();
-		this.loggingService.logAfterReturningMethod();
+	
 	}
 	
 	
